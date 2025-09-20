@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyApplication</string>
+    <string name="title_main">Lista de Cidades</string>
+    <string name="people_city">Populacao:</string>
+    <string name="name_city">Cidade:</string>
+    <string name="name_city_input">Nome da Cidade:</string>
+    <string name="people_city_input">Populacao da Cidade:</string>
+</resources>
