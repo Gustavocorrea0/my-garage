@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var gesture: GestureDetector
 
-    private val addCityForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+    private val addCarForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             result -> if (result.resultCode == RESULT_OK) {
         adapter.notifyDataSetChanged()
         result.data?.let { data ->
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private val editCityForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+    private val editCarForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             result -> if (result.resultCode == RESULT_OK) {
         adapter.notifyDataSetChanged()
         result.data?.let { data ->
@@ -70,12 +70,12 @@ class MainActivity : AppCompatActivity() {
                 binding.rcvCities.findChildViewUnder(e.x, e.y).also { view ->
                     view?.let {
                             child -> binding.rcvCities.getChildAdapterPosition(child).also { position ->
-                        val city = DataStore.getCar(position)
+                        val car = DataStore.getCar(position)
                         Intent(this@MainActivity, CarActivity::class.java).also { i ->
                             i.putExtra("idCar", position)
-                            editCityForResult.launch(i)
+                            editCarForResult.launch(i)
                         }
-                        //Toast.makeText(this@MainActivity, city.name, Toast.LENGTH_LONG).show()
+                        //Toast.makeText(this@MainActivity, car.name, Toast.LENGTH_LONG).show()
                     }
                     }
                 }

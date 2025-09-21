@@ -4,42 +4,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/white">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp">
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapsingToobar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:title="Lista de Cidades"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:expandedTitleTextColor="@color/yellow"
-            app:collapsedTitleTextColor="@color/white"
-            app:expandedTitleMarginStart="80dp">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/cidades"
-                android:scaleType="centerCrop"/>
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"/>
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-    </com.google.android.material.appbar.AppBarLayout>
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="125dp"
+        android:text="@string/titleProject"
+        android:fontFamily="@font/russo_one"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <!-- recyclerview: componente utilizado exibir listas ou grades de dados de forma eficiente -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvCities"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_marginTop="150dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <!-- button -->

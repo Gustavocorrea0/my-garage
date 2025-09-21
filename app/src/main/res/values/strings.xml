@@ -16,4 +16,5 @@
     <string name="labelCarValue">Car Value:</string>
     <string name="labelBtnCancel">Cancel</string>
     <string name="labelBtnSave">Save</string>
+    <string name="titleProject">MyGarage</string>
 </resources>
