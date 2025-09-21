@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyGarageV2">
         <activity
-            android:name=".controller.ManagerActivity"
+            android:name=".controller.CarActivity"
             android:exported="false" />
         <activity
             android:name=".controller.MainActivity"

@@ -5,4 +5,15 @@
     <string name="name_city">Cidade:</string>
     <string name="name_city_input">Nome da Cidade:</string>
     <string name="people_city_input">Populacao da Cidade:</string>
+    <string name="titlePage2">Car</string>
+    <string name="labelNameCar">Name:</string>
+    <string name="labelBrandCar">Brand:</string>
+    <string name="labelPlateCar">Plate</string>
+    <string name="labelYearCar">Year</string>
+    <string name="labelColorCar">Color:</string>
+    <string name="labelFuelCar">Fuel:</string>
+    <string name="labelFipeValueCar">Fipe Value:</string>
+    <string name="labelCarValue">Car Value:</string>
+    <string name="labelBtnCancel">Cancel</string>
+    <string name="labelBtnSave">Save</string>
 </resources>

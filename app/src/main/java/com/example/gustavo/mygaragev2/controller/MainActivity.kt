@@ -14,13 +14,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gustavo.mygaragev2.R
 import com.google.android.material.snackbar.Snackbar
-import com.example.gustavo.mygaragev2.view.CityAdapter
+import com.example.gustavo.mygaragev2.view.CarAdapter
 import com.example.gustavo.mygaragev2.databinding.ActivityMainBinding
 import com.example.gustavo.mygaragev2.model.DataStore
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var adapter: CityAdapter
+    private lateinit var adapter: CarAdapter
     private lateinit var binding: ActivityMainBinding
     private lateinit var gesture: GestureDetector
 
@@ -28,19 +28,19 @@ class MainActivity : AppCompatActivity() {
             result -> if (result.resultCode == RESULT_OK) {
         adapter.notifyDataSetChanged()
         result.data?.let { data ->
-            data.getStringExtra("cityName")?.let {
-                    name -> this.showMessage("Cidade $name criada com sucesso!!!")
+            data.getStringExtra("carName")?.let {
+                    name -> this.showMessage("Carro $name criado com sucesso!!!")
             }
         }
-    }
+        }
     }
 
     private val editCityForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             result -> if (result.resultCode == RESULT_OK) {
         adapter.notifyDataSetChanged()
         result.data?.let { data ->
-            data.getStringExtra("cityName")?.let {
-                    name -> this.showMessage("Cidade $name alterada com sucesso!!!")
+            data.getStringExtra("carName")?.let {
+                    name -> this.showMessage("Carro $name alterado com sucesso!!!")
             }
         }
     }
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
     fun configureFab() {
         binding.fab.setOnClickListener {
-            Intent(this, ManagerActivity::class.java).also { i ->
+            Intent(this, CarActivity::class.java).also { i ->
                 startActivity(i)
             }
         }
@@ -70,9 +70,9 @@ class MainActivity : AppCompatActivity() {
                 binding.rcvCities.findChildViewUnder(e.x, e.y).also { view ->
                     view?.let {
                             child -> binding.rcvCities.getChildAdapterPosition(child).also { position ->
-                        val city = DataStore.getCity(position)
-                        Intent(this@MainActivity, ManagerActivity::class.java).also { i ->
-                            i.putExtra("idCity", position)
+                        val city = DataStore.getCar(position)
+                        Intent(this@MainActivity, CarActivity::class.java).also { i ->
+                            i.putExtra("idCar", position)
                             editCityForResult.launch(i)
                         }
                         //Toast.makeText(this@MainActivity, city.name, Toast.LENGTH_LONG).show()
@@ -86,13 +86,14 @@ class MainActivity : AppCompatActivity() {
                 binding.rcvCities.findChildViewUnder(e.x, e.y).also { view ->
                     view?.let {
                             child -> binding.rcvCities.getChildAdapterPosition(child).also { position ->
-                        val city = DataStore.getCity(position)
+                        val car = DataStore.getCar(position)
                         AlertDialog.Builder(this@MainActivity).also {  dialog ->
-                            dialog.setTitle("Cities App")
-                            dialog.setMessage("Tem certeza que deseja excluir a cidade: ${city.name}")
+                            dialog.setTitle("MyGarage")
+                            dialog.setMessage("Tem Certeza que Deseja Excluir o Carro: ${car.carName} " +
+                                    "| Placa ${car.carPlate}")
                             dialog.setPositiveButton(android.R.string.ok) { _, _ ->
-                                DataStore.delCity(position)
-                                this@MainActivity.showMessage("Cidade ${city.name} removida com sucesso!!!")
+                                DataStore.delCar(position)
+                                this@MainActivity.showMessage("Cidade ${car.carName} Removido com Sucesso!!!")
                                 adapter.notifyDataSetChanged()
                             }
                             dialog.setNegativeButton(android.R.string.cancel, null)
@@ -139,7 +140,7 @@ class MainActivity : AppCompatActivity() {
         LinearLayoutManager(this).also { llm ->
             llm.orientation = LinearLayoutManager.VERTICAL
             binding.rcvCities.layoutManager = llm
-            adapter = CityAdapter(DataStore.cities)
+            adapter = CarAdapter(DataStore.cars)
             binding.rcvCities.adapter = adapter // populando a recicle view com dados
         }
     }

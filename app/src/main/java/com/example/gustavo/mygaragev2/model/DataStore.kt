@@ -3,34 +3,38 @@ package com.example.gustavo.mygaragev2.model
 // controle o armazenamento e manipulacao de dados (CRUD)
 
 object DataStore {
-    val cities: MutableList<City> = arrayListOf()
+    val cars: MutableList<Car> = arrayListOf()
 
     // informacoes iniciais
     init {
-        cities.add(City("Sao Paulo", 12000000))
-        cities.add(City("Curitiba", 1800000))
-        cities.add(City("Terra Boa", 16000))
-        cities.add(City("Cianorte", 80000))
+        cars.add(Car("RS3", "Audi", "AAA1A111", 2019,
+            "Metallic Gray","Gasoline",422000.0,434999.9))
+
+        cars.add(Car("A45 AMG", "Mercedes-Benz", "BBB1B111", 2020,
+            "Red","Gasoline", 359070.0,379070.0))
+
+        cars.add(Car("Astra GSI 16V", "Chevrolet", "CCC1C111",
+            0, "Red Apple","Gasoline",0.0,0.0))
     }
 
-    // retornar cidade
-    fun getCity(position: Int): City {
-        return cities[position]
+    // retornar carro
+    fun getCar(position: Int): Car {
+        return cars[position]
     }
 
-    // criar cidade
-    fun addCity(city: City) {
-        cities.add(city)
+    // criar carro
+    fun addCar(car: Car) {
+        cars.add(car)
     }
 
-    // editar cidade
-    fun editCity(position: Int, city: City) {
-        cities.set(position, city)
+    // editar carro
+    fun editCar(position: Int, car: Car) {
+        cars.set(position, car)
     }
 
-    // deletar cidade
-    fun delCity(position: Int){
-        cities.removeAt(position) // remover a partir da posicao e nao do objeto
+    // deletar carro
+    fun delCar(position: Int){
+        cars.removeAt(position) // remover a partir da posicao e nao do objeto
     }
 
 }
