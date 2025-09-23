@@ -12,10 +12,11 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="11dp"
         android:layout_marginStart="180dp"
         android:text="@string/titlePage2"
         android:textColor="@color/black"
+        android:fontFamily="@font/russo_one"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,13 +24,14 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="77dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/labelNameCar"
             android:textSize="18sp"
@@ -41,78 +43,80 @@
 
         <EditText
             android:id="@+id/txtCarName"
-            android:layout_width="300dp"
+            android:layout_width="295dp"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <!-- *************************************************** -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="1sp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/labelBrandCar"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="end"/>
+
+        <EditText
+            android:id="@+id/txtCarBrand"
+            android:layout_width="295dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="1sp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/labelPlateCar"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="end"/>
+
+        <EditText
+            android:id="@+id/txtCarPlate"
+            android:layout_width="305dp"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
 
     <!-- *************************************************** -->
-
     <LinearLayout
-        android:layout_width="384dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="1sp"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="82dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            android:text="@string/labelBrandCar"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/txtCarBrand"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:inputType="numberSigned" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="378dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="72dp"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:text="@string/labelPlateCar"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/txtCarPlate"
-            android:layout_width="310dp"
-            android:layout_height="wrap_content"
-            android:inputType="numberSigned" />
-
-    </LinearLayout>
-
-    <!-- *************************************************** -->
-    <LinearLayout
-        android:layout_width="377dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="68dp"
-            android:layout_height="wrap_content"
-            android:gravity="end"
             android:text="@string/labelYearCar"
-            android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="end"/>
 
         <EditText
             android:id="@+id/txtCarYear"
-            android:layout_width="310dp"
+            android:layout_width="304dp"
             android:layout_height="wrap_content"
             android:inputType="numberSigned" />
 
@@ -121,73 +125,74 @@
     <!-- *************************************************** -->
 
     <LinearLayout
-        android:layout_width="377dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="1sp"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="81dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
             android:text="@string/labelColorCar"
-            android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="end" />
 
         <EditText
             android:id="@+id/txtCarColor"
-            android:layout_width="299dp"
-            android:layout_height="wrap_content"
-            android:inputType="numberSigned" />
+            android:layout_width="298dp"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
     <!-- *************************************************** -->
 
     <LinearLayout
-        android:layout_width="383dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="1sp"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="70dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
             android:text="@string/labelFuelCar"
-            android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="end" />
 
         <EditText
             android:id="@+id/txtCarFuel"
-            android:layout_width="309dp"
-            android:layout_height="wrap_content"
-            android:inputType="numberSigned" />
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
     <!-- *************************************************** -->
 
     <LinearLayout
-        android:layout_width="374dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="1sp"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
             android:text="@string/labelFipeValueCar"
-            android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="end"/>
 
         <EditText
             android:id="@+id/txtCarFipeValue"
-            android:layout_width="269dp"
+            android:layout_width="258dp"
             android:layout_height="wrap_content"
             android:inputType="numberSigned" />
 
@@ -196,13 +201,14 @@
     <!-- *************************************************** -->
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="1sp"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="114dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/labelCarValue"
             android:textSize="18sp"
@@ -214,7 +220,7 @@
             android:id="@+id/txtCarSaleValue"
             android:layout_width="263dp"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned" />
+            android:inputType="numberSigned" /> <!-- tipo de input -->
 
     </LinearLayout>
 
@@ -224,7 +230,7 @@
         android:layout_width="369dp"
         android:layout_height="50dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="270dp"
         android:layout_marginBottom="15dp"
         android:backgroundTint="#0088ff"
         android:text="@string/labelBtnSave"
@@ -241,7 +247,7 @@
         android:backgroundTint="#0088ff"
         android:text="@string/labelBtnCancel"
         android:textColor="@android:color/white"
-        app:cornerRadius="10dp"/>
+        app:cornerRadius="10dp" />
 
 
 </LinearLayout>

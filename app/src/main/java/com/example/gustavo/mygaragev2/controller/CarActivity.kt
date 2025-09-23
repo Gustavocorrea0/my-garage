@@ -20,6 +20,8 @@ class CarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityManagerBinding.inflate(layoutInflater)
 
+        // REVER PROBLEMA DE DIGITACAO DE NUMEROS
+
         position = intent.getIntExtra("idCar", -1)
         if (position > -1) {
             val car = DataStore.getCar(position)
