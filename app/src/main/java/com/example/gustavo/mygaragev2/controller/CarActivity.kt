@@ -23,6 +23,7 @@ class CarActivity : AppCompatActivity() {
         // REVER PROBLEMA DE DIGITACAO DE NUMEROS
 
         position = intent.getIntExtra("idCar", -1)
+
         if (position > -1) {
             val car = DataStore.getCar(position)
             binding.txtCarName.setText(car.carName)
@@ -39,9 +40,6 @@ class CarActivity : AppCompatActivity() {
 
         // funcoes dos botoes - criar carro
         binding.btnSave.setOnClickListener {
-            //val name = binding.txtName.text.toString()
-            //val people = binding.txtPeople.text.toString().toIntOrNull() ?: 0 // se for nulo retorna 0
-
             val carName = binding.txtCarName.text.toString()
             val carBrand = binding.txtCarBrand.text.toString()
             val carPlate = binding.txtCarPlate.text.toString()
@@ -51,7 +49,10 @@ class CarActivity : AppCompatActivity() {
             val carFipeValue = binding.txtCarFipeValue.text.toString().toDoubleOrNull() ?: 0.0
             val carSaleValue = binding.txtCarSaleValue.text.toString().toDoubleOrNull() ?: 0.0
 
+            // rever logica de atualizacao da tela inicial
+            
             Car(carName, carBrand, carPlate, carYear, carColor, carFuel, carFipeValue, carSaleValue).also { car ->
+
                 if (position == -1) {
                     DataStore.addCar(car)
                 } else {
@@ -71,6 +72,7 @@ class CarActivity : AppCompatActivity() {
             setResult(RESULT_CANCELED)
             finish()
         }
+
     }
 
     fun configureUI() {

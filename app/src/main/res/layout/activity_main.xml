@@ -37,6 +37,8 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#0088ff"
         android:src="@android:drawable/ic_input_add"
+        app:tint="@android:color/white"
+        app:maxImageSize="30dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="25dp"/>
 
