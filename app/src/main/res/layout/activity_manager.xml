@@ -12,7 +12,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="180dp"
         android:text="@string/titlePage2"
         android:textColor="@color/black"
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="1dp"
         android:orientation="horizontal">
 
         <TextView
@@ -224,12 +224,27 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imgView"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="35dp" />
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_gallery" />
+
+        <Button
+            android:id="@+id/btnImageSearch"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:text="" />
+
+    </FrameLayout>
 
     <Button
         android:id="@+id/btnSave"
@@ -254,6 +269,5 @@
         android:text="@string/labelBtnCancel"
         android:textColor="@android:color/white"
         app:cornerRadius="10dp" />
-
 
 </LinearLayout>
