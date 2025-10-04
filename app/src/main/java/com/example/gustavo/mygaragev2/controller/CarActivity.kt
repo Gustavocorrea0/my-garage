@@ -2,10 +2,12 @@ package com.example.gustavo.mygaragev2.controller
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 import com.example.gustavo.mygaragev2.databinding.ActivityManagerBinding
 import com.example.gustavo.mygaragev2.model.DataStore
 import com.example.gustavo.mygaragev2.model.Car
@@ -21,9 +23,9 @@ class CarActivity : AppCompatActivity() {
         binding = ActivityManagerBinding.inflate(layoutInflater)
 
         // REVER PROBLEMA DE DIGITACAO DE NUMEROS
-
         position = intent.getIntExtra("idCar", -1)
 
+        // MONTA O BLOCO DE LISTAGEM
         if (position > -1) {
             val car = DataStore.getCar(position)
             binding.txtCarName.setText(car.carName)
@@ -34,6 +36,8 @@ class CarActivity : AppCompatActivity() {
             binding.txtCarFuel.setText(car.carFuel)
             binding.txtCarFipeValue.setText(car.carFipeValue.toString())
             binding.txtCarSaleValue.setText(car.carSaleValue.toString())
+
+            Glide.with(this).load(car.carImage).into(binding.imgView)
         }
 
         this.configureUI()
@@ -48,10 +52,11 @@ class CarActivity : AppCompatActivity() {
             val carFuel = binding.txtCarFuel.text.toString()
             val carFipeValue = binding.txtCarFipeValue.text.toString().toDoubleOrNull() ?: 0.0
             val carSaleValue = binding.txtCarSaleValue.text.toString().toDoubleOrNull() ?: 0.0
+            val carImage = binding.imgView.toString()
 
             // rever logica de atualizacao da tela inicial
             
-            Car(carName, carBrand, carPlate, carYear, carColor, carFuel, carFipeValue, carSaleValue).also { car ->
+            Car(carName, carBrand, carPlate, carYear, carColor, carFuel, carFipeValue, carSaleValue, carImage).also { car ->
 
                 if (position == -1) {
                     DataStore.addCar(car)
@@ -84,4 +89,7 @@ class CarActivity : AppCompatActivity() {
             insets
         }
     }
+
 }
+
+private fun CarActivity.findViewById(id: ImageView) {}

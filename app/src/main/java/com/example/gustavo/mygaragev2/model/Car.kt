@@ -1,5 +1,7 @@
 package com.example.gustavo.mygaragev2.model
 
+import android.media.Image
+
 /*
 * nome - name
 * marca - brand
@@ -21,7 +23,8 @@ class Car (
     var carColor: String,
     var carFuel: String,
     var carFipeValue: Double,
-    var carSaleValue: Double
+    var carSaleValue: Double,
+    var carImage: String
 ) {
     //constructor(): this("", 0)
     //constructor(name: String): this(name, 0)

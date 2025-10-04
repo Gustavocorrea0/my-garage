@@ -107,6 +107,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    // REVER ESTE BLOCO
     fun configureRecycleViewWithEvents(){
         binding.rcvCities.addOnItemTouchListener(object : RecyclerView.OnItemTouchListener{
             override fun onInterceptTouchEvent( rv: RecyclerView, e: MotionEvent): Boolean {
