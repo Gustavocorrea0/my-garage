@@ -1,5 +1,6 @@
 package com.example.gustavo.mygaragev2.controller
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.GestureDetector
@@ -24,26 +25,28 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var gesture: GestureDetector
 
+    @SuppressLint("NotifyDataSetChanged")
     private val addCarForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            result -> if (result.resultCode == RESULT_OK) {
-        adapter.notifyDataSetChanged()
-        result.data?.let { data ->
-            data.getStringExtra("carName")?.let {
-                    name -> this.showMessage("Carro $name criado com sucesso!!!")
+        result -> if (result.resultCode == RESULT_OK) {
+            adapter.notifyDataSetChanged()
+            result.data?.let { data ->
+                data.getStringExtra("carName")?.let {
+                        name -> this.showMessage("Carro $name criado com sucesso!!!")
+                }
             }
-        }
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private val editCarForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            result -> if (result.resultCode == RESULT_OK) {
-        adapter.notifyDataSetChanged()
-        result.data?.let { data ->
-            data.getStringExtra("carName")?.let {
-                    name -> this.showMessage("Carro $name alterado com sucesso!!!")
+        result -> if (result.resultCode == RESULT_OK) {
+            adapter.notifyDataSetChanged()
+            result.data?.let { data ->
+                data.getStringExtra("carName")?.let {
+                        name -> this.showMessage("Carro $name alterado com sucesso!!!")
+                }
             }
         }
-    }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +62,8 @@ class MainActivity : AppCompatActivity() {
     fun configureFab() {
         binding.fab.setOnClickListener {
             Intent(this, CarActivity::class.java).also { i ->
-                startActivity(i)
+                //startActivity(i)
+                addCarForResult.launch(i)
             }
         }
     }
@@ -82,6 +86,7 @@ class MainActivity : AppCompatActivity() {
                 return super.onSingleTapConfirmed(e)
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             override fun onLongPress(e: MotionEvent) {
                 binding.rcvCities.findChildViewUnder(e.x, e.y).also { view ->
                     view?.let {
@@ -93,7 +98,7 @@ class MainActivity : AppCompatActivity() {
                                     "| Placa ${car.carPlate}")
                             dialog.setPositiveButton(android.R.string.ok) { _, _ ->
                                 DataStore.delCar(position)
-                                this@MainActivity.showMessage("Cidade ${car.carName} Removido com Sucesso!!!")
+                                this@MainActivity.showMessage("Carro ${car.carName} Removido com Sucesso!!!")
                                 adapter.notifyDataSetChanged()
                             }
                             dialog.setNegativeButton(android.R.string.cancel, null)
