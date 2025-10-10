@@ -101,10 +101,10 @@ class CarActivity : AppCompatActivity() {
                 carIsValid = false
                 this.showMessage("Insert Car Fuel")
             }
-            if (carFipeValue == 0.0) {
+            /*if (carFipeValue == 0.0) {
                 carIsValid = false
                 this.showMessage("Insert Car Fipe Value")
-            }
+            }*/
             if (carSaleValue == 0.0) {
                 carIsValid = false
                 this.showMessage("Insert Car Sale Value")
@@ -122,7 +122,6 @@ class CarActivity : AppCompatActivity() {
                 currentImageUri
             )
 
-            println("Posicao: $position")
             // erro ao adicionar validar campos
             if (carIsValid && position == -1) {
                 DataStore.addCar(car)
@@ -131,7 +130,7 @@ class CarActivity : AppCompatActivity() {
                     setResult(RESULT_OK, this)
                 }
                 finish()
-            } else if ( position > -1) {
+            } else if (carIsValid && position > -1) {
                 DataStore.editCar(position, car)
                 Intent().apply {
                     this.putExtra("carName", carName)

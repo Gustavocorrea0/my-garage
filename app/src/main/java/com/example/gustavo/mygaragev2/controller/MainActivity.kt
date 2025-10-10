@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
             result.data?.let { data ->
                 data.getStringExtra("carName")?.let {
-                        name -> this.showMessage("Carro $name criado com sucesso!!!")
+                        name -> this.showMessage("$name Created Successfully!!!")
                 }
             }
         }
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
             result.data?.let { data ->
                 data.getStringExtra("carName")?.let {
-                        name -> this.showMessage("Carro $name alterado com sucesso!!!")
+                        name -> this.showMessage("$name Changed Successfully!!!!!!")
                 }
             }
         }
@@ -92,11 +92,11 @@ class MainActivity : AppCompatActivity() {
                         val car = DataStore.getCar(position)
                         AlertDialog.Builder(this@MainActivity).also {  dialog ->
                             dialog.setTitle("MyGarage")
-                            dialog.setMessage("Tem Certeza que Deseja Excluir o Carro: ${car.carName} " +
-                                    "| Placa ${car.carPlate}")
+                            dialog.setMessage("Are you sure you want to delete the car: ${car.carName} " +
+                                    "| Plate ${car.carPlate}")
                             dialog.setPositiveButton(android.R.string.ok) { _, _ ->
                                 DataStore.delCar(position)
-                                this@MainActivity.showMessage("${car.carName} Removido com Sucesso!!!")
+                                this@MainActivity.showMessage("${car.carName} Successfully Removed!!!")
                                 adapter.notifyDataSetChanged()
                             }
                             dialog.setNegativeButton(android.R.string.cancel, null)
