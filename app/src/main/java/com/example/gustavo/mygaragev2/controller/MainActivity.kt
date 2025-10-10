@@ -62,25 +62,23 @@ class MainActivity : AppCompatActivity() {
     fun configureFab() {
         binding.fab.setOnClickListener {
             Intent(this, CarActivity::class.java).also { i ->
-                //startActivity(i)
                 addCarForResult.launch(i)
             }
         }
     }
 
-    fun configureGestures(){
+    fun configureGestures() {
         gesture = GestureDetector(this, object:GestureDetector.SimpleOnGestureListener() {
             override fun onSingleTapConfirmed(e: MotionEvent): Boolean {
                 binding.rcvCities.findChildViewUnder(e.x, e.y).also { view ->
                     view?.let {
                             child -> binding.rcvCities.getChildAdapterPosition(child).also { position ->
-                        val car = DataStore.getCar(position)
-                        Intent(this@MainActivity, CarActivity::class.java).also { i ->
-                            i.putExtra("idCar", position)
-                            editCarForResult.launch(i)
-                        }
-                        //Toast.makeText(this@MainActivity, car.name, Toast.LENGTH_LONG).show()
-                    }
+                            val car = DataStore.getCar(position)
+                            Intent(this@MainActivity, CarActivity::class.java).also { i ->
+                                    i.putExtra("idCar", position)
+                                    editCarForResult.launch(i)
+                                }
+                            }
                     }
                 }
                 return super.onSingleTapConfirmed(e)
@@ -98,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                                     "| Placa ${car.carPlate}")
                             dialog.setPositiveButton(android.R.string.ok) { _, _ ->
                                 DataStore.delCar(position)
-                                this@MainActivity.showMessage("Carro ${car.carName} Removido com Sucesso!!!")
+                                this@MainActivity.showMessage("${car.carName} Removido com Sucesso!!!")
                                 adapter.notifyDataSetChanged()
                             }
                             dialog.setNegativeButton(android.R.string.cancel, null)
@@ -113,7 +111,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // REVER ESTE BLOCO
-    fun configureRecycleViewWithEvents(){
+    fun configureRecycleViewWithEvents() {
         binding.rcvCities.addOnItemTouchListener(object : RecyclerView.OnItemTouchListener{
             override fun onInterceptTouchEvent( rv: RecyclerView, e: MotionEvent): Boolean {
                 rv.findChildViewUnder(e.x, e.y).also { view ->
@@ -128,7 +126,6 @@ class MainActivity : AppCompatActivity() {
             override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {
                 TODO("Not yet implemented")
             }
-
         })
     }
 

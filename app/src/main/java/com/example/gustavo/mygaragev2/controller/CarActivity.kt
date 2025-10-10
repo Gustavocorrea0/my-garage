@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.example.gustavo.mygaragev2.databinding.ActivityManagerBinding
 import com.example.gustavo.mygaragev2.model.Car
 import com.example.gustavo.mygaragev2.model.DataStore
+import com.google.android.material.snackbar.Snackbar
 
 class CarActivity : AppCompatActivity() {
 
@@ -29,6 +30,7 @@ class CarActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         binding = ActivityManagerBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -73,6 +75,40 @@ class CarActivity : AppCompatActivity() {
             val carFuel = binding.txtCarFuel.text.toString()
             val carFipeValue = binding.txtCarFipeValue.text.toString().toDoubleOrNull() ?: 0.0
             val carSaleValue = binding.txtCarSaleValue.text.toString().toDoubleOrNull() ?: 0.0
+            var carIsValid: Boolean = true
+
+            if (carName == "") {
+                carIsValid = false
+                this.showMessage("Insert Car Name")
+            }
+            if (carBrand == "") {
+                carIsValid = false
+                this.showMessage("Insert Car Brand")
+            }
+            if (carPlate == "") {
+                carIsValid = false
+                this.showMessage("Insert Car Plate")
+            }
+            if (carYear == 0) {
+                carIsValid = false
+                this.showMessage("Insert Car Year")
+            }
+            if (carColor == "") {
+                carIsValid = false
+                this.showMessage("Insert Car Color")
+            }
+            if (carFuel == "") {
+                carIsValid = false
+                this.showMessage("Insert Car Fuel")
+            }
+            if (carFipeValue == 0.0) {
+                carIsValid = false
+                this.showMessage("Insert Car Fipe Value")
+            }
+            if (carSaleValue == 0.0) {
+                carIsValid = false
+                this.showMessage("Insert Car Sale Value")
+            }
 
             val car = Car(
                 carName,
@@ -86,17 +122,24 @@ class CarActivity : AppCompatActivity() {
                 currentImageUri
             )
 
-            if (position == -1) {
+            println("Posicao: $position")
+            // erro ao adicionar validar campos
+            if (carIsValid && position == -1) {
                 DataStore.addCar(car)
-            } else {
+                Intent().apply {
+                    this.putExtra("carName", carName)
+                    setResult(RESULT_OK, this)
+                }
+                finish()
+            } else if ( position > -1) {
                 DataStore.editCar(position, car)
+                Intent().apply {
+                    this.putExtra("carName", carName)
+                    setResult(RESULT_OK, this)
+                }
+                finish()
             }
 
-            Intent().apply {
-                this.putExtra("carName", carName)
-                setResult(RESULT_OK, this)
-            }
-            finish()
         }
 
         // Botão cancelar
@@ -104,6 +147,7 @@ class CarActivity : AppCompatActivity() {
             setResult(RESULT_CANCELED)
             finish()
         }
+
     }
 
     private fun configureUI() {
@@ -113,5 +157,9 @@ class CarActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    fun showMessage(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
     }
 }
