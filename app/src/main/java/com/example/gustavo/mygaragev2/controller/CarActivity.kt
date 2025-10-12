@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -50,6 +52,16 @@ class CarActivity : AppCompatActivity() {
             getImage.launch("image/*")
         }
 
+        val fuelOptions = arrayOf("Select Fuel", "Gasoline", "Ethanol", "Flex", "Diesel", "Hybrid", "Electric", "GNV")
+
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            fuelOptions
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.fuelSpinner.adapter = adapter
+
         // Se for edição de carro já existente
         if (position > -1) {
             val car = DataStore.getCar(position)
@@ -59,13 +71,18 @@ class CarActivity : AppCompatActivity() {
             binding.txtCarPlate.setText(car.carPlate)
             binding.txtCarYear.setText(car.carYear.toString())
             binding.txtCarColor.setText(car.carColor)
-            binding.txtCarFuel.setText(car.carFuel)
+            //binding.txtCarFuel.setText(car.carFuel)
             binding.txtCarFipeValue.setText(car.carFipeValue.toString())
             binding.txtCarSaleValue.setText(car.carSaleValue.toString())
 
             if (car.carImage.isNotEmpty()) {
                 currentImageUri = car.carImage
                 Glide.with(this).load(car.carImage.toUri()).into(binding.imgView)
+            }
+
+            val positionFuel = fuelOptions.indexOf(car.carFuel)
+            if (positionFuel >= 0) {
+                binding.fuelSpinner.setSelection(positionFuel)
             }
         }
 
@@ -76,7 +93,8 @@ class CarActivity : AppCompatActivity() {
             val carPlate = binding.txtCarPlate.text.toString()
             val carYear = binding.txtCarYear.text.toString().toIntOrNull() ?: 0
             val carColor = binding.txtCarColor.text.toString()
-            val carFuel = binding.txtCarFuel.text.toString()
+            //val carFuel = binding.txtCarFuel.text.toString()
+            val carFuel = binding.fuelSpinner.selectedItem.toString()
             val carFipeValue = binding.txtCarFipeValue.text.toString().toDoubleOrNull() ?: 0.0
             val carSaleValue = binding.txtCarSaleValue.text.toString().toDoubleOrNull() ?: 0.0
             var carIsValid: Boolean = true
@@ -103,7 +121,7 @@ class CarActivity : AppCompatActivity() {
                 this.showMessage("Insert a valid Color")
             }
 
-            if (carFuel == "") {
+            if (carFuel == "Select Fuel") {
                 carIsValid = false
                 this.showMessage("Insert a valid Fuel")
             }

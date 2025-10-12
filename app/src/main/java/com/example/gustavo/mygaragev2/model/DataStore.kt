@@ -16,7 +16,7 @@ object DataStore {
             "https://garagemde0a100.com.br/wp-content/uploads/2024/11/mercedes-amg-a-45-4matic-2019-1.jpg"))
 
         cars.add(Car("Astra GSI 16V", "Chevrolet", "CCC1C111",
-            0, "Red Apple","Gasoline",0.0,0.0,
+            0, "Red Apple","Gasoline",50000.0,55000.0,
             "https://i.ytimg.com/vi/sEYpa8GfwGY/maxresdefault.jpg"))
     }
 

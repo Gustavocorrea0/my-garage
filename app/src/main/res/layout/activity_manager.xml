@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- cadastro -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layManager"
     android:layout_width="match_parent"
@@ -8,12 +9,13 @@
     android:orientation="vertical"
     android:layout_margin="5dp">
 
+    <!-- Título -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_marginStart="180dp"
+        android:layout_marginTop="30dp"
         android:text="@string/titlePage2"
         android:textColor="@color/black"
         android:fontFamily="@font/russo_one"
@@ -23,6 +25,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Campo: Nome do carro -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,26 +36,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="end"
             android:text="@string/labelNameCar"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:gravity="end"/>
-
-        <!-- 2:19:54 -->
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtCarName"
             android:layout_width="295dp"
             android:layout_height="wrap_content"
             android:maxLength="25"
-            android:singleLine="true"
-            />
-
+            android:singleLine="true" />
     </LinearLayout>
 
-    <!-- *************************************************** -->
-
+    <!-- Campo: Marca do carro -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,22 +61,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="end"
             android:text="@string/labelBrandCar"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:gravity="end"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtCarBrand"
             android:layout_width="295dp"
             android:layout_height="wrap_content"
             android:maxLength="25"
-            android:singleLine="true"
-            />
-
+            android:singleLine="true" />
     </LinearLayout>
 
+    <!-- Campo: Placa -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,22 +86,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="end"
             android:text="@string/labelPlateCar"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:gravity="end"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtCarPlate"
             android:layout_width="305dp"
             android:layout_height="wrap_content"
             android:maxLength="8"
-            android:singleLine="true"/>
-
+            android:singleLine="true" />
     </LinearLayout>
 
-    <!-- *************************************************** -->
+    <!-- Campo: Ano -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -115,78 +111,70 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="end"
             android:text="@string/labelYearCar"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:gravity="end"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtCarYear"
             android:layout_width="304dp"
             android:layout_height="wrap_content"
+            android:maxLength="4"
             android:inputType="numberSigned" />
-
     </LinearLayout>
 
-    <!-- *************************************************** -->
-
+    <!-- Campo: Cor -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="1sp"
+        android:layout_marginTop="0sp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="end"
             android:text="@string/labelColorCar"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:gravity="end" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtCarColor"
             android:layout_width="298dp"
             android:layout_height="wrap_content"
             android:maxLength="25"
-            android:singleLine="true"
-            />
-
+            android:singleLine="true" />
     </LinearLayout>
 
-    <!-- *************************************************** -->
-
+    <!-- Campo: Combustível -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="1sp"
+        android:layout_marginTop="4sp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="end"
             android:text="@string/labelFuelCar"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:gravity="end" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/txtCarFuel"
+        <Spinner
+            android:id="@+id/fuel_spinner"
             android:layout_width="307dp"
             android:layout_height="wrap_content"
-            android:maxLength="25"
-            android:singleLine="true"
-            />
-
+            android:maxLength="25" />
     </LinearLayout>
 
-    <!-- *************************************************** -->
-
+    <!-- Campo: Valor FIPE -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -197,22 +185,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="end"
             android:text="@string/labelFipeValueCar"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:gravity="end"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtCarFipeValue"
             android:layout_width="223dp"
             android:layout_height="wrap_content"
+            android:maxLength="20"
             android:inputType="numberSigned" />
 
     </LinearLayout>
 
-    <!-- *************************************************** -->
-
+    <!-- Campo: Valor de venda -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -223,20 +211,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="end"
             android:text="@string/labelCarValue"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:gravity="end"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtCarSaleValue"
             android:layout_width="227dp"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned" /> <!-- tipo de input -->
-
+            android:inputType="numberSigned"
+            android:maxLength="20"/>
     </LinearLayout>
 
+    <!-- Imagem -->
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -256,9 +245,9 @@
             android:layout_height="50dp"
             android:background="@android:color/transparent"
             android:text="" />
-
     </FrameLayout>
 
+    <!-- Botão: Salvar -->
     <Button
         android:id="@+id/btnSave"
         android:layout_width="369dp"
@@ -269,8 +258,9 @@
         android:backgroundTint="#0088ff"
         android:text="@string/labelBtnSave"
         android:textColor="@android:color/white"
-        app:cornerRadius="10dp"/>
+        app:cornerRadius="10dp" />
 
+    <!-- Botão: Cancelar -->
     <Button
         android:id="@+id/btnCancel"
         android:layout_width="369dp"
