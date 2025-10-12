@@ -45,6 +45,8 @@
             android:id="@+id/txtCarName"
             android:layout_width="295dp"
             android:layout_height="wrap_content"
+            android:maxLength="25"
+            android:singleLine="true"
             />
 
     </LinearLayout>
@@ -70,7 +72,10 @@
         <EditText
             android:id="@+id/txtCarBrand"
             android:layout_width="295dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:maxLength="25"
+            android:singleLine="true"
+            />
 
     </LinearLayout>
 
@@ -93,7 +98,9 @@
         <EditText
             android:id="@+id/txtCarPlate"
             android:layout_width="305dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:maxLength="8"
+            android:singleLine="true"/>
 
     </LinearLayout>
 
@@ -143,7 +150,10 @@
         <EditText
             android:id="@+id/txtCarColor"
             android:layout_width="298dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:maxLength="25"
+            android:singleLine="true"
+            />
 
     </LinearLayout>
 
@@ -168,7 +178,10 @@
         <EditText
             android:id="@+id/txtCarFuel"
             android:layout_width="307dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:maxLength="25"
+            android:singleLine="true"
+            />
 
     </LinearLayout>
 
@@ -192,7 +205,7 @@
 
         <EditText
             android:id="@+id/txtCarFipeValue"
-            android:layout_width="258dp"
+            android:layout_width="223dp"
             android:layout_height="wrap_content"
             android:inputType="numberSigned" />
 
@@ -218,7 +231,7 @@
 
         <EditText
             android:id="@+id/txtCarSaleValue"
-            android:layout_width="263dp"
+            android:layout_width="227dp"
             android:layout_height="wrap_content"
             android:inputType="numberSigned" /> <!-- tipo de input -->
 

@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
             result.data?.let { data ->
                 data.getStringExtra("carName")?.let {
-                        name -> this.showMessage("$name Created Successfully!!!")
+                        name -> this.showMessage("$name Created Successfully!")
                 }
             }
         }
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
             result.data?.let { data ->
                 data.getStringExtra("carName")?.let {
-                        name -> this.showMessage("$name Changed Successfully!!!!!!")
+                        name -> this.showMessage("$name Changed Successfully!")
                 }
             }
         }
@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                                     "| Plate ${car.carPlate}")
                             dialog.setPositiveButton(android.R.string.ok) { _, _ ->
                                 DataStore.delCar(position)
-                                this@MainActivity.showMessage("${car.carName} Successfully Removed!!!")
+                                this@MainActivity.showMessage("${car.carName} Successfully Removed!")
                                 adapter.notifyDataSetChanged()
                             }
                             dialog.setNegativeButton(android.R.string.cancel, null)

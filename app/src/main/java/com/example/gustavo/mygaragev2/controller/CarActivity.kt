@@ -2,9 +2,11 @@ package com.example.gustavo.mygaragev2.controller
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
@@ -14,12 +16,14 @@ import com.example.gustavo.mygaragev2.databinding.ActivityManagerBinding
 import com.example.gustavo.mygaragev2.model.Car
 import com.example.gustavo.mygaragev2.model.DataStore
 import com.google.android.material.snackbar.Snackbar
+import java.util.Calendar
 
 class CarActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityManagerBinding
     private var position = -1
     private var currentImageUri: String = ""
+    private var thisYear = getCurrentYear()
 
     // Contrato para abrir a galeria e pegar a URI da imagem
     private val getImage = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
@@ -79,35 +83,34 @@ class CarActivity : AppCompatActivity() {
 
             if (carName == "") {
                 carIsValid = false
-                this.showMessage("Insert Car Name")
+                this.showMessage("Insert a valid Name")
             }
             if (carBrand == "") {
                 carIsValid = false
-                this.showMessage("Insert Car Brand")
+                this.showMessage("Insert a valid Brand")
             }
-            if (carPlate == "") {
+            if (carPlate == "" || carPlate.length > 8 || carPlate.length < 7) {
                 carIsValid = false
-                this.showMessage("Insert Car Plate")
+                this.showMessage("Insert a valid License Plate")
             }
-            if (carYear == 0) {
+            if (carYear == 0 || carYear > (thisYear + 1) || carYear < 1886) {
                 carIsValid = false
-                this.showMessage("Insert Car Year")
+                this.showMessage("Insert a valid Year")
             }
+
             if (carColor == "") {
                 carIsValid = false
-                this.showMessage("Insert Car Color")
+                this.showMessage("Insert a valid Color")
             }
+
             if (carFuel == "") {
                 carIsValid = false
-                this.showMessage("Insert Car Fuel")
+                this.showMessage("Insert a valid Fuel")
             }
-            /*if (carFipeValue == 0.0) {
-                carIsValid = false
-                this.showMessage("Insert Car Fipe Value")
-            }*/
+
             if (carSaleValue == 0.0) {
                 carIsValid = false
-                this.showMessage("Insert Car Sale Value")
+                this.showMessage("Insert Sales Value")
             }
 
             val car = Car(
@@ -160,5 +163,10 @@ class CarActivity : AppCompatActivity() {
 
     fun showMessage(message: String) {
         Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
+    }
+
+    fun getCurrentYear(): Int {
+        val calendar = Calendar.getInstance()
+        return calendar.get(Calendar.YEAR)
     }
 }

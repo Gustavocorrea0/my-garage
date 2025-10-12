@@ -7,8 +7,8 @@
     <string name="labelYearCar">Year:</string>
     <string name="labelColorCar">Color:</string>
     <string name="labelFuelCar">Fuel:</string>
-    <string name="labelFipeValueCar">Fipe Value:</string>
-    <string name="labelCarValue">Car Value:</string>
+    <string name="labelFipeValueCar">Fipe Value(R$):</string>
+    <string name="labelCarValue">Car Value(R$):</string>
     <string name="labelBtnCancel">Cancel</string>
     <string name="labelBtnSave">Save</string>
     <string name="titleProject">MyGarage</string>
