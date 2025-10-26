@@ -12,4 +12,6 @@
     <string name="labelBtnCancel">Cancel</string>
     <string name="labelBtnSave">Save</string>
     <string name="titleProject">MyGarage</string>
+    <string name="plate">Plate:</string>
+    <string name="car">Car:</string>
 </resources>

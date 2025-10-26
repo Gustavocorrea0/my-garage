@@ -84,6 +84,7 @@ class CarActivity : AppCompatActivity() {
             if (positionFuel >= 0) {
                 binding.fuelSpinner.setSelection(positionFuel)
             }
+
         }
 
         // Botão salvar
