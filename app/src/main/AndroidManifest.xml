@@ -13,15 +13,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyGarageV2">
+
+        <!-- Tela de gerenciamento de carros -->
         <activity
             android:name=".controller.CarActivity"
             android:exported="false" />
+
+        <!-- Tela principal (após o login) -->
         <activity
             android:name=".controller.MainActivity"
+            android:exported="false" />
+
+        <!-- Tela de login (tela inicial do app) -->
+        <activity
+            android:name=".controller.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -29,6 +37,7 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

@@ -14,4 +14,8 @@
     <string name="titleProject">MyGarage</string>
     <string name="plate">Plate:</string>
     <string name="car">Car:</string>
+    <string name="signin">Sign In</string>
+    <string name="passwordField">Password</string>
+    <string name="emailField">E-mail</string>
+    <string name="logIn">Log in</string>
 </resources>
