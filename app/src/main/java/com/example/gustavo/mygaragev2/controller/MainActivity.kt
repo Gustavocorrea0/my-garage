@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -18,6 +19,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.example.gustavo.mygaragev2.view.CarAdapter
 import com.example.gustavo.mygaragev2.databinding.ActivityMainBinding
 import com.example.gustavo.mygaragev2.model.DataStore
+import android.widget.ImageButton
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -57,6 +60,13 @@ class MainActivity : AppCompatActivity() {
         this.configureFab()
         this.configureGestures()
         this.configureRecycleViewWithEvents()
+
+        val btnBack = findViewById<ImageButton>(R.id.btnBack)
+        btnBack.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     fun configureFab() {

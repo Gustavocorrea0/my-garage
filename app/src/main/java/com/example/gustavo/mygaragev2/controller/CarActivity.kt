@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -103,56 +104,59 @@ class CarActivity : AppCompatActivity() {
             if (carName == "") {
                 carIsValid = false
                 this.showMessage("Insert a valid Name")
-            }
-            if (carBrand == "") {
+            } else if (carBrand == "") {
                 carIsValid = false
                 this.showMessage("Insert a valid Brand")
-            }
-            if (carPlate == "" || carPlate.length > 8 || carPlate.length < 7) {
+            } else if (carPlate == "" || carPlate.length > 8 || carPlate.length < 7) {
                 carIsValid = false
-                this.showMessage("Insert a valid License Plate")
-            }
-            if (carYear == 0 || carYear > (thisYear + 1) || carYear < 1886) {
+                this.showMessage("Insert a valid Plate")
+            } else if (carYear == 0 || carYear > (thisYear + 1) || carYear < 1886) {
                 carIsValid = false
                 this.showMessage("Insert a valid Year")
-            }
-
-            if (carColor == "") {
+            } else if (carColor == "") {
                 carIsValid = false
                 this.showMessage("Insert a valid Color")
-            }
-
-            if (carFuel == "Select Fuel") {
+            } else if (carFuel == "Select Fuel") {
                 carIsValid = false
                 this.showMessage("Insert a valid Fuel")
-            }
-
-            if (carSaleValue == 0.0) {
+            } else if (carSaleValue == 0.0) {
                 carIsValid = false
                 this.showMessage("Insert Sales Value")
             }
 
-            val car = Car(
-                carName,
-                carBrand,
-                carPlate,
-                carYear,
-                carColor,
-                carFuel,
-                carFipeValue,
-                carSaleValue,
-                currentImageUri
-            )
-
             // erro ao adicionar validar campos
             if (carIsValid && position == -1) {
+                val car = Car(
+                    carName,
+                    carBrand,
+                    carPlate,
+                    carYear,
+                    carColor,
+                    carFuel,
+                    carFipeValue,
+                    carSaleValue,
+                    currentImageUri
+                )
+
                 DataStore.addCar(car)
                 Intent().apply {
                     this.putExtra("carName", carName)
                     setResult(RESULT_OK, this)
                 }
                 finish()
+
             } else if (carIsValid && position > -1) {
+                val car = Car(
+                    carName,
+                    carBrand,
+                    carPlate,
+                    carYear,
+                    carColor,
+                    carFuel,
+                    carFipeValue,
+                    carSaleValue,
+                    currentImageUri
+                )
                 DataStore.editCar(position, car)
                 Intent().apply {
                     this.putExtra("carName", carName)
@@ -181,7 +185,8 @@ class CarActivity : AppCompatActivity() {
     }
 
     fun showMessage(message: String) {
-        Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
+        //Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     fun getCurrentYear(): Int {
