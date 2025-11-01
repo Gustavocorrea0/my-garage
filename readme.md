@@ -39,5 +39,5 @@ Prototipagem de Telas: [Figma](https://www.figma.com/pt-br/) &nbsp;&middot;&nbsp
 
 ## 📷 Telas
 
-<img src="./img-screen/1login.png" alt="Alt text" width="200"/><img src="./img-screen/2home.png" alt="Alt text" width="200"/>
-<img src="./img-screen/3create.png" alt="Alt text" width="200"/><img src="./img-screen/4RUD.png" alt="Alt text" width="200"/>
+<img src="./img-screen/1login.png" alt="Alt text" width="200"/> <img src="./img-screen/2home.png" alt="Alt text" width="200"/>
+<img src="./img-screen/3create.png" alt="Alt text" width="200"/> <img src="./img-screen/4RUD.png" alt="Alt text" width="200"/>
