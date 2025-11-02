@@ -33,7 +33,7 @@
 ### Tools
 
 IDEA: [Android Studio](https://developer.android.com/studio?hl=pt-br) &nbsp;&middot;&nbsp; <br>
-Prototipagem de Telas: [Figma](https://www.figma.com/pt-br/) &nbsp;&middot;&nbsp; <br>
+Screen Prototyping: [Figma](https://www.figma.com/pt-br/) &nbsp;&middot;&nbsp; <br>
 
 ### 📷 Screens
 
